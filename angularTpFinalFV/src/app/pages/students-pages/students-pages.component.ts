@@ -40,5 +40,9 @@ export class StudentsPagesComponent implements OnInit {
     });
   }
 
+  deleteStudent(student: Student) {
+    this.students = this.students.filter((stu) => stu.id !== student.id);
+  }
+
   ngOnInit(): void {}
 }
