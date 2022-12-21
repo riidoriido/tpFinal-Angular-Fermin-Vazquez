@@ -1,9 +1,14 @@
 <div class="container">
-  <h6>sidebar</h6>
-  <ul>
-    <li>link1</li>
-    <li>link2</li>
-    <li>link3</li>
-    <li>link4</li>
-  </ul>
+  <h1 class="text-warning">Links de Interés</h1>
+  <br /><br />
+
+  <div class="d-grid gap-2 w-100">
+    <a
+      *ngFor="let link of linkList"
+      class="btn btn-outline-warning"
+      role="button"
+      href="{{ link.url }}"
+      >{{ link.title }}</a
+    >
+  </div>
 </div>

@@ -41,8 +41,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-</div>
-<div class="p-3">
   <button (click)="addStudent()" mat-flat-button color="accent">
     Agregar alumno<mat-icon>add_circle</mat-icon>
   </button>
