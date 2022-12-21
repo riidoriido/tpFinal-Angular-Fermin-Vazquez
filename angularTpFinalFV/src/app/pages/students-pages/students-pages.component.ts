@@ -48,6 +48,14 @@ export class StudentsPagesComponent implements OnInit {
     const dialog = this.dialogService.open(StudentDialogComponent, {
       data: student,
     });
+
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.students = this.students.map((stu) =>
+          stu.id === student.id ? { ...stu, ...data } : stu
+        );
+      }
+    });
   }
 
   ngOnInit(): void {}
