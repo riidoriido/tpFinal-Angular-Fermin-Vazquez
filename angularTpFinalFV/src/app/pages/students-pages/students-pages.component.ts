@@ -28,7 +28,15 @@ export class StudentsPagesComponent implements OnInit {
   constructor(private readonly dialogService: MatDialog) {}
 
   addStudent() {
-    this.dialogService.open(StudentDialogComponent);
+    const dialog = this.dialogService.open(StudentDialogComponent);
+    dialog.afterClosed().subscribe((value) => {
+      if (value) {
+        const lastId = this.students[this.students.length - 1]?.id;
+        this.students.push(
+          new Student(lastId + 1, value.firstName, value.lastName, true)
+        );
+      }
+    });
   }
 
   ngOnInit(): void {}
