@@ -44,5 +44,11 @@ export class StudentsPagesComponent implements OnInit {
     this.students = this.students.filter((stu) => stu.id !== student.id);
   }
 
+  editStudent(student: Student) {
+    const dialog = this.dialogService.open(StudentDialogComponent, {
+      data: student,
+    });
+  }
+
   ngOnInit(): void {}
 }
