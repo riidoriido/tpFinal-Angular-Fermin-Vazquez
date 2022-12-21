@@ -20,7 +20,12 @@
   </form>
   <div mat-dialog-actions>
     <button mat-button (click)="close()">Cancelar</button>
-    <button mat-button [mat-dialog-close]="studentForm.value" cdkFocusInitial>
+    <button
+      mat-button
+      [mat-dialog-close]="studentForm.value"
+      [disabled]="firstNameControl.errors || lastNameControl.errors"
+      cdkFocusInitial
+    >
       Ok
     </button>
   </div>

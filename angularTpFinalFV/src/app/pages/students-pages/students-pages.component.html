@@ -2,7 +2,9 @@
   <table mat-table [dataSource]="students">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>No.</th>
-      <td mat-cell *matCellDef="let student">{{ student.id }}</td>
+      <td mat-cell *matCellDef="let student">
+        {{ student.id }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="firstName">
@@ -17,7 +19,12 @@
 
     <ng-container matColumnDef="isActive">
       <th mat-header-cell *matHeaderCellDef>En Linea</th>
-      <td mat-cell *matCellDef="let student">{{ student.isActive }}</td>
+      <td mat-cell *matCellDef="let student">
+        <mat-icon color="accent" *ngIf="student.isActive">
+          check_circle
+        </mat-icon>
+        <mat-icon color="warn" *ngIf="!student.isActive"> cancel </mat-icon>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="editar">
